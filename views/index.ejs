@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <!-- Font awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>To Do List</title>
+</head>
+
+<header>
+  <nav>
+    <div class="navbar">
+      <div class="today">
+        <a href="/"><i class="fa-regular fa-calendar-days fa-sm"></i> Today</a>
+      </div>
+      <div>
+        <a href="/work"><i class="fa-solid fa-business-time fa-sm"></i> Work</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+  <main class="container">
+    <div class="box" id="title">
+      <h1><%= day %></h1>
+    </div>
+    <div class="content box">
+        <% tasks.forEach((task) => {%>
+          <div class="item">
+            <input type="checkbox">
+            <p ><%= task %></p>
+          </div>
+        <%}); %>
+    </div>
+    <div id="newTask" class="box">
+      <form action="/submit" method="POST">
+        <input type="text" name="task" placeholder="Add a new task">
+        <button type="submit"><i class="fa-solid fa-circle-plus fa-xl" style="color: #a683e3;"></i></button>
+      </form>
+    </div>
+  </main>
+  <script src="actions.js"></script>
+</body>
+
+<footer>
+  <p>Copyright © <%=year %></p>
+</footer>
+</html>
